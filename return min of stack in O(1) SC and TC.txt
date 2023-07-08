@@ -1,0 +1,48 @@
+class Solution{
+    stack<int> s;
+    int mini= INT_MAX;
+    public:
+    
+       /*returns min element from sack*/
+       int getMin(){
+           
+           //Write your code here
+           if(s.empty()) return -1;
+           else return mini;
+       }
+       
+       /*returns poped element from sack*/
+       int pop(){
+           
+           //Write your code here
+           if(s.empty()) return -1 ;
+           int u = s.top();
+           int v = s.top();
+           s.pop();
+           if(u<mini){
+               v=mini;
+               int val = 2*mini- u;
+               mini = val;
+            
+           }
+           return v;
+       }
+       
+       /*push element x into the sack*/
+       void push(int x){
+           if(s.empty()){
+               s.push(x);
+               mini=x;
+           }
+           else if(x<mini){
+               int val = 2*x - mini;
+               s.push(val);
+               mini = x;
+           }
+           else{
+               s.push(x);
+           }
+           //Write your code here
+           
+       }
+};
